@@ -9,9 +9,9 @@ Setup:
   pip install python-telegram-bot==20.7 python-dotenv requests
 
 .env:
-  TELEGRAM_BOT_TOKEN= "8789385480:AAFzkfFvFm3u_W8R8PjVBKdEUg-xdIdoY08"
-  TELEGRAM_CHAT_ID= "5086257498"
-  ANTHROPIC_API_KEY= "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"
+  TELEGRAM_BOT_TOKEN= 
+  TELEGRAM_CHAT_ID= 
+  ANTHROPIC_API_KEY= 
 """
 
 import os

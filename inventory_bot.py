@@ -478,7 +478,12 @@ async def handle_callback(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
     if data.startswith("client_ai_"):
         cid = data[10:]
         c   = db.get("clients", {}).get(cid)
-        await q.edit_message_text("🤖 Analizando... un momento...")
+        if not ANTHROPIC_KEY:
+            await q.edit_message_text(
+                "Sin ANTHROPIC_API_KEY configurada. Agrega la variable en Railway.",
+                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Volver", callback_data=f"view_{cid}")]]))
+            return
+        await q.edit_message_text("Analizando... un momento...")
         try:
             alerts = get_alerts(c)
             health = get_health(c)
